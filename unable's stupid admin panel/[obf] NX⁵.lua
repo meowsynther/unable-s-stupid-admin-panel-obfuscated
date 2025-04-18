@@ -5,7 +5,7 @@
   \ \_\\"\_\   /\_\/\_\  \/\_____\    \/_/\_\_/     \ \_____\  \/\_____\  \ \_\ \_\  \ \_\   
    \/_/ \/_/   \/_/\/_/   \/_____/       \/_/        \/_____/   \/_____/   \/_/\/_/   \/_/  
    
-   Made by Team Noxious -- unable's stupid admin panel >.< [version 3]
+   Made by Team Noxious -- unable's stupid admin panel >.< [version 4]
    
 ---------------------------------------------------------------------------------------------------------------------------]]--
 
@@ -13,7 +13,7 @@ wait(0.1) unable = {} unable["test game"] = 118022198489171
 
 ---------------------------------------------------------------------------------------------------------------------------]]--
 
-unable["version"] = "3"
+unable["version"] = "4"
 unable["workspace"] = game.Workspace
 unable["user input service"] = game:GetService("UserInputService")
 unable["players"] = game:GetService("Players")
@@ -604,7 +604,7 @@ unable["toggle interface visibility button text padding"].PaddingTop = UDim.new(
 unable["toggle interface visibility button text padding"].Parent = unable["toggle interface visibility button"]
 
 unable["toggle interface visibility button"].Parent = unable["screen gui"]
-unable["toggle interface visibility button"].ZIndex = 61
+unable["toggle interface visibility button"].ZIndex = 71
 
 -------------------------------------------------------------------------------------------------------------------------------
 
@@ -629,7 +629,7 @@ unable["toggle interface visibility button text padding?"].PaddingTop = UDim.new
 unable["toggle interface visibility button text padding?"].Parent = unable["toggle interface visibility button?"]
 
 unable["toggle interface visibility button?"].Parent = unable["toggle interface visibility button"]
-unable["toggle interface visibility button?"].ZIndex = 62
+unable["toggle interface visibility button?"].ZIndex = 72
 
 -------------------------------------------------------------------------------------------------------------------------------
 
@@ -828,7 +828,7 @@ for name, config in pairs(buttonConfigs) do
 	smallButton.TextScaled = false
 	smallButton.TextXAlignment = Enum.TextXAlignment.Center
 	smallButton.TextYAlignment = Enum.TextYAlignment.Center
-	smallButton.ZIndex = 59
+	smallButton.ZIndex = 70
 	smallButton.Parent = unable["toggle interface visibility button"]
 	smallButton.Visible = false
 
@@ -2305,7 +2305,7 @@ unable["executor tab"].Visible = false
 unable["introduction"].Visible = false
 
 local entered = Instance.new("Sound")
-entered.SoundId = "rbxassetid://1570675466"
+entered.SoundId = "rbxassetid://8458409341"
 entered.Parent = unable["local player"]
 entered.Name = "canttouchthis"
 entered.Volume = 0
@@ -2318,11 +2318,7 @@ local function checkpass()
 	if cancheck == true then
 		cancheck = false
 		if unable["password box"].Text == unable["pw"] then canpress = false
-			entered.SoundId = "rbxassetid://1570675466"
-			entered.Parent = unable["local player"]
-			entered.Name = "canttouchthis"
-			entered.Volume = 2.1
-			entered.TimePosition = 0
+			entered.Volume = 1
 			spawn(function() entered:Play() end)
 			unable["unlocked"] = true
 			unable["password label"].Text = "correct password uwuw"
@@ -2532,7 +2528,7 @@ local function checkpass()
 			unable["pwb"].BorderSizePixel = 1
 			unable["pwb"].Parent = unable["top bar"]
 			unable["pwb"].BackgroundTransparency = 1
-			unable["pwb"].ZIndex = 57
+			unable["pwb"].ZIndex = 69
 
 			local fadeIn = tweenService:Create(unable["pwb"], TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundTransparency = 0})
 			fadeIn:Play()
@@ -17821,67 +17817,33 @@ fout.Completed:Connect(function()
 		fout2:Play()
 		fout2.Completed:Connect(function()
 			tivb.TextSize = 20
+			local shufflefaces = true
 			spawn(function()
-				tivb.Text = "o.<"
-				wait()
-				tivb.Text = ">.-"
-				wait()
-				tivb.Text = "^.o"
-				wait()
-				tivb.Text = "o.^"
-				wait()
-				tivb.Text = "-.ó"
-				wait()
-				tivb.Text = "ò.-"
-				wait()
-				tivb.Text = "^.ó"
-				wait()
-				tivb.Text = "-.^"
-				wait()
-				tivb.Text = ">.ó"
-				wait()
-				tivb.Text = "ò.<"
-				wait()
-				tivb.Text = "^.-"
-				wait()
-				tivb.Text = ">.^"
-				wait()
-				tivb.Text = "-.<"
-				wait()
-				tivb.Text = ">.o"
-				wait()
-				tivb.Text = "ò.-"
-				wait()
-				tivb.Text = "^.ó"
-				wait()
-				tivb.Text = ">.-"
-				wait()
-				tivb.Text = "ò.<"
-				wait()
-				tivb.Text = "^.o"
-				wait()
-				tivb.Text = "-.^"
-				wait()
-				tivb.Text = ">.o"
-				wait()
-				tivb.Text = "^.-"
-				wait()
-				tivb.Text = "ò.^"
-				wait()
-				tivb.Text = "-.ó"
-				wait()
-				tivb.Text = ">.<"
+				local expressions = {
+					"o.<", ">.-", "^.o", "o.^", "-.ó", "ò.-", "^.ó", "-.^",
+					">.ó", "ò.<", "^.-", ">.^", "-.<", ">.o", "ò.^", ">.o",
+					"=.^", "~.o", "o.~", "=.<", ">.~", "~.-", "^.~", "~.^",
+					"~.<", "=.o", "=.ó", "ò.~", "~.ó", "=.=", "~.~", "=.~",
+					">.=", "~.~", "ó.=", "o.<", "-.o", "^.="
+				}
+
+				while shufflefaces == true do
+					local shuffled = {}
+					for _, v in ipairs(expressions) do table.insert(shuffled, v) end
+					for i = #shuffled, 2, -1 do local j = math.random(i) shuffled[i], shuffled[j] = shuffled[j], shuffled[i] end
+					for _, face in ipairs(shuffled) do tivb.Text = face wait() end
+				end
 			end)
 			local fin = unable["tween service"]:Create(tivb, tin, {TextTransparency = 0})
 			fin:Play()
 			fin.Completed:Connect(function()
 				local beep = Instance.new("Sound")
-				beep.SoundId = "rbxassetid://8183296024"
+				beep.SoundId = "rbxassetid://8458409341"
 				beep.Parent = unable["local player"]
-				beep.Volume = 2.5
+				beep.Volume = 1
 				beep.Name = "canttouchthis"
 				beep.PlayOnRemove = true
-				wait(0.5)
+				wait(math.random(1, 2)) shufflefaces = false
 				tivb:Destroy()
 				toggleLoop(true)
 				canpress = true
