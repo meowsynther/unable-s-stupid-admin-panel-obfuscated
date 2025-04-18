@@ -5,7 +5,7 @@
   \ \_\\"\_\   /\_\/\_\  \/\_____\    \/_/\_\_/     \ \_____\  \/\_____\  \ \_\ \_\  \ \_\   
    \/_/ \/_/   \/_/\/_/   \/_____/       \/_/        \/_____/   \/_____/   \/_/\/_/   \/_/  
    
-   Made by Team Noxious -- unable's stupid admin panel >.< [version 5]
+   Made by Team Noxious -- unable's stupid admin panel >.< [version 2]
    
 ---------------------------------------------------------------------------------------------------------------------------]]--
 
@@ -13,7 +13,7 @@ wait(0.1) unable = {} unable["test game"] = 118022198489171
 
 ---------------------------------------------------------------------------------------------------------------------------]]--
 
-unable["version"] = "5"
+unable["version"] = "2"
 unable["workspace"] = game.Workspace
 unable["user input service"] = game:GetService("UserInputService")
 unable["players"] = game:GetService("Players")
@@ -17822,11 +17822,11 @@ fout.Completed:Connect(function()
 					"^.o", 
 					"o.<", 
 					"ò.^", 
-					"o.ó", 
+					">.ó", 
 					"-.^",
 					"ò.o", 
 					"-.<", 
-					"ò.-", 
+					">.-", 
 					"^.o", 
 					"o.<", 
 					"-.o", 
@@ -17852,7 +17852,7 @@ fout.Completed:Connect(function()
 				beep.Volume = 1
 				beep.Name = "canttouchthis"
 				beep.PlayOnRemove = true
-				wait(math.random(0.7, 1.5)) shufflefaces = false
+				wait(math.random(1, 1.5)) shufflefaces = false
 				tivb:Destroy()
 				toggleLoop(true)
 				canpress = true
